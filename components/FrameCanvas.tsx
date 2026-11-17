@@ -100,8 +100,6 @@ export default function FrameCanvas({
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const isMobile = displayWidth < 768;
-      // On desktop, center horizontally (0.5) so ring occupies center 35% of frame
-      // On mobile, position lower (posY: 0.65) so top 30% is completely free for text
       const posX = 0.5;
       const posY = isMobile ? 0.65 : 0.5;
 
@@ -119,7 +117,6 @@ export default function FrameCanvas({
         drawWidth = canvas.height * imgAspect;
       }
 
-      // Max scale cap: 1.02 to avoid edge artifacts
       const dx = (canvas.width - drawWidth) * posX;
       const dy = (canvas.height - drawHeight) * posY;
 
@@ -205,13 +202,13 @@ export default function FrameCanvas({
       <canvas
         ref={canvasRef}
         role="img"
-        aria-label="Silver smart ring from Silver Holem, floating and rotating in mid-air with sleep, heart rate, and recovery tracking shown as the light moves across the metal."
+        aria-label="Aura Ring precision smart ring, floating and rotating in mid-air with sleep, heart rate, and recovery tracking shown as the light moves across the titanium metal."
         className={`w-full h-full block transition-opacity duration-300 ${
           firstBatchReady ? "opacity-100" : "opacity-0"
         }`}
       />
 
-      {/* Dark-to-transparent gradient from the left edge, no wider than 40% of the screen for WCAG AA */}
+      {/* Dark-to-transparent gradient from the left edge */}
       <div
         className="absolute inset-y-0 left-0 w-[40vw] pointer-events-none"
         style={{

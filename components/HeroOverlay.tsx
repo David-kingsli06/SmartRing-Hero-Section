@@ -14,19 +14,18 @@ export default function HeroOverlay({
   canvasEntered,
   reducedMotion,
 }: HeroOverlayProps) {
-  // Check if any feature hold is active
   const isFeatureHoldActive = FEATURES.some(
     (f) => progress >= f.holdStart && progress <= f.holdEnd
   );
 
-  // Stage 1 (0 to 0.28): Headline 1 stays visible longer across the initial scroll
+  // Stage 1 (0 to 0.28): Headline 1
   const stage1Opacity = reducedMotion
     ? 0
     : progress <= 0.26
     ? 1
     : Math.max(0, 1 - (progress - 0.26) / 0.04);
 
-  // Stage 3 (0.72 to 1.0): Wordmark "Silver Holem" reveals gracefully with prolonged reading presence
+  // Stage 3 (0.72 to 1.0): Wordmark "AURA RING" reveals
   let stage3Opacity = 0;
   if (reducedMotion) {
     stage3Opacity = 1;
@@ -38,7 +37,7 @@ export default function HeroOverlay({
     stage3Opacity = 1;
   }
 
-  // Scroll cue: fades out after p = 0.05
+  // Scroll cue: bottom center, fading out after p = 0.05
   const scrollCueOpacity = reducedMotion
     ? 0
     : progress < 0.01
@@ -81,7 +80,7 @@ export default function HeroOverlay({
         </p>
       </div>
 
-      {/* Stage 3: Wordmark "Silver Holem" */}
+      {/* Stage 3: Wordmark "AURA RING" */}
       <div
         className="absolute select-none flex flex-col justify-center
           top-[10%] left-[6vw] w-[88vw]
@@ -98,9 +97,9 @@ export default function HeroOverlay({
             letterSpacing: "-0.03em",
           }}
         >
-          Silver
+          Aura
           <br />
-          Holem
+          Ring
         </p>
 
         <p

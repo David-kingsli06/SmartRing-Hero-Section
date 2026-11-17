@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Silver Holem — Premium Smart Ring",
-  description: "Track every night. Recover every day. Sleep, heart rate, and recovery in one ring.",
+  title: "Aura Ring — Precision Health on Your Finger",
+  description: "Track every night. Recover every day. Sleep, heart rate, and recovery in one titanium ring.",
 };
 
 export default function RootLayout({
